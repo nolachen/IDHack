@@ -1,7 +1,7 @@
-"""capri URL Configuration
+"""login URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/1.11/topics/http/urls/
+    https://docs.djangoproject.com/en/1.9/topics/http/urls/
 Examples:
 Function views
     1. Add an import:  from my_app import views
@@ -15,12 +15,12 @@ Including another URLconf
 """
 from django.conf.urls import url , include
 from django.contrib import admin
-#for media and static images
 from django.conf import settings
 from django.conf.urls.static import static
-
+from HomeManager import views as home_manager_views
 
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
-    url(r'^', include('HomeManager.urls')) #directs to HomeManager Urls
+
+    url(r'^$', home_manager_views.HomePage, name='HomePage'),  # directs all else to home manager
 ]
+
